@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="520.0" prefWidth="960.0" style="-fx-background-color: #f4f4f4;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cl.duoc.autofix.controller.MainController">
+    <top>
+        <VBox BorderPane.alignment="CENTER_LEFT">
+            <padding>
+                <Insets bottom="12.0" left="22.0" right="22.0" top="18.0" />
+            </padding>
+            <children>
+                <Label text="Registro de vehículos" textFill="#1f2937">
+                    <font>
+                        <Font name="System Bold" size="21.0" />
+                    </font>
+                </Label>
+            </children>
+        </VBox>
+    </top>
+    <center>
+        <HBox spacing="24.0" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="10.0" left="22.0" right="22.0" top="4.0" />
+            </padding>
+            <children>
+                <!-- Panel izquierdo: Formulario de registro -->
+                <VBox prefWidth="360.0" spacing="12.0">
+                    <children>
+                        <GridPane hgap="12.0" vgap="10.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="NEVER" minWidth="130.0" prefWidth="135.0" />
+                                <ColumnConstraints hgrow="ALWAYS" minWidth="180.0" prefWidth="210.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="30.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="30.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="30.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="30.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label text="Tipo:" />
+                                <ComboBox fx:id="cmbTipo" maxWidth="1.7976931348623157E308" promptText="Seleccione..." GridPane.columnIndex="1" />
+
+                                <Label text="Marca:" GridPane.rowIndex="1" />
+                                <TextField fx:id="txtMarca" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                                <Label text="Año de fabricación:" GridPane.rowIndex="2" />
+                                <TextField fx:id="txtAnio" maxWidth="115.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                                <Label text="Kilometraje:" GridPane.rowIndex="3" />
+                                <TextField fx:id="txtKilometraje" maxWidth="115.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                            </children>
+                        </GridPane>
+
+                        <!-- Sección Datos del auto -->
+                        <TitledPane fx:id="paneDatosAuto" animated="false" collapsible="false" text="Datos del auto">
+                            <content>
+                                <GridPane hgap="12.0" vgap="8.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="NEVER" minWidth="115.0" prefWidth="120.0" />
+                                        <ColumnConstraints hgrow="ALWAYS" minWidth="170.0" prefWidth="195.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="28.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="24.0" prefHeight="25.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="24.0" prefHeight="25.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <padding>
+                                        <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                                    </padding>
+                                    <children>
+                                        <Label text="Modelo:" />
+                                        <TextField fx:id="txtModelo" GridPane.columnIndex="1" />
+
+                                        <CheckBox fx:id="chkGarantiaVigente" mnemonicParsing="false" text="Garantía de fábrica vigente" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                                        <CheckBox fx:id="chkGarantiaActiva" mnemonicParsing="false" text="Garantía activa" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    </children>
+                                </GridPane>
+                            </content>
+                        </TitledPane>
+
+                        <!-- Sección Datos del furgón -->
+                        <TitledPane fx:id="paneDatosFurgon" animated="false" collapsible="false" text="Datos del furgón">
+                            <content>
+                                <GridPane hgap="12.0" vgap="8.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="NEVER" minWidth="115.0" prefWidth="120.0" />
+                                        <ColumnConstraints hgrow="ALWAYS" minWidth="170.0" prefWidth="195.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="28.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <padding>
+                                        <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                                    </padding>
+                                    <children>
+                                        <Label text="Capacidad (ton):" />
+                                        <TextField fx:id="txtCapacidad" GridPane.columnIndex="1" />
+                                    </children>
+                                </GridPane>
+                            </content>
+                        </TitledPane>
+
+                        <HBox alignment="CENTER_RIGHT">
+                            <children>
+                                <Button fx:id="btnRegistrar" mnemonicParsing="false" onAction="#handleRegistrar" prefHeight="32.0" prefWidth="95.0" text="Registrar" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+
+                <!-- Panel derecho: Tabla de vehículos y botón Eliminar -->
+                <VBox spacing="12.0" HBox.hgrow="ALWAYS">
+                    <children>
+                        <TableView fx:id="tblVehiculos" prefHeight="330.0" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="colTipo" prefWidth="90.0" text="Tipo" />
+                                <TableColumn fx:id="colMarca" prefWidth="125.0" text="Marca" />
+                                <TableColumn fx:id="colAnio" prefWidth="80.0" text="Año" />
+                                <TableColumn fx:id="colKilometraje" prefWidth="115.0" text="Kilometraje" />
+                                <TableColumn fx:id="colCostoServicio" prefWidth="135.0" text="Costo servicio" />
+                            </columns>
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                            </columnResizePolicy>
+                        </TableView>
+
+                        <HBox alignment="CENTER_LEFT">
+                            <children>
+                                <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#handleEliminar" prefHeight="32.0" prefWidth="90.0" text="Eliminar" />
+                                <Region HBox.hgrow="ALWAYS" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER_LEFT" BorderPane.alignment="CENTER_LEFT">
+            <padding>
+                <Insets bottom="16.0" left="22.0" right="22.0" top="8.0" />
+            </padding>
+            <children>
+                <Label fx:id="lblMensaje" wrapText="true">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>
